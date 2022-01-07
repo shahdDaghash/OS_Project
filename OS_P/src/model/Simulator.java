@@ -2,6 +2,8 @@ package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -96,7 +98,18 @@ public class Simulator {
 	}
 	
 	public void generateFile(String filename) {
-		
+		//filename should include the path ex: File myObj = new File("C:\\Users\\MyName\\filename.txt");
+		File newFile = new File(filename);
+		 try {
+	      FileWriter myWriter = new FileWriter(newFile,true);
+		  myWriter.write("1 2 3\n");
+		  //n lines
+		  myWriter.write("1 1 2 3 A1");
+		  myWriter.close();
+		} catch (IOException e) {
+		  System.out.println("An error occurred.");
+		  e.printStackTrace();
+		}
 	}
 	
 	

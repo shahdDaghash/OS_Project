@@ -62,7 +62,7 @@ public class WelcomePageController implements Initializable{
     
     public void file_chooser(ActionEvent event) {
     	FileChooser fc = new FileChooser();
-    	fc.setInitialDirectory(new File("C:\\Users\\user\\Desktop"));
+    	fc.setInitialDirectory(new File("C:\\"));
     	fc.getExtensionFilters().add(new ExtensionFilter("Text Files", "*.txt"));
     	File f = fc.showOpenDialog(null);
     	
@@ -75,7 +75,7 @@ public class WelcomePageController implements Initializable{
     
     public void directory_chooser(ActionEvent event) {
     	DirectoryChooser dc = new DirectoryChooser();
-    	dc.setInitialDirectory(new File("C:\\Users\\user\\Desktop"));
+    	dc.setInitialDirectory(new File("C:\\"));
     	dc.setTitle("Choose Directory");
        	File f = dc.showDialog(null);
     	
@@ -90,6 +90,7 @@ public class WelcomePageController implements Initializable{
     public void startSimulateSelect(ActionEvent event) throws IOException {
     	if(noErrors()) {
     		Simulator s = new Simulator();
+    		
     		Main m = new Main();
     		boolean cont = s.readFile(choose_path_txt.getText());
     		if(cont)
