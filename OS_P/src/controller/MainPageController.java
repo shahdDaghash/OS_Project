@@ -4,15 +4,23 @@
 
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
 
 public class MainPageController {
 
+	@FXML
+	private BorderPane bp;
+	
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -39,5 +47,23 @@ public class MainPageController {
         assert start != null : "fx:id=\"start\" was not injected: check your FXML file 'MainPage.fxml'.";
 
     }
+    
+    /*
+    @FXML
+	private void OpenPayments(ActionEvent event) {
+		loadPage("Payments");
 
+	}
+     */
+	private void loadPage(String page) {
+			Parent r = null;
+			try {
+				r = FXMLLoader.load(getClass().getResource("/view/"+page+".fxml"));
+			} catch (IOException e) {
+				//Logger.getLogger(WelcomeController.class.getName()).log(Level.SEVERE, null, e);
+			}
+			bp.setCenter(r);
+
+
+	}
 }
