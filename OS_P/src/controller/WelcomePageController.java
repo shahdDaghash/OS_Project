@@ -90,9 +90,17 @@ public class WelcomePageController implements Initializable{
     public void startSimulateSelect(ActionEvent event) throws IOException {
     	if(noErrors()) {
     		Simulator s = new Simulator();
-    		
+    		String fileName = "";
+    		if(generate_radio.isSelected()) {
+    			fileName+=dir_txt.getText();
+    			fileName+="\\";
+    			fileName+=filename_txt.getText();
+    			s.generateFile(fileName);
+    		}else {
+    			fileName+=choose_path_txt.getText();
+    		}
     		Main m = new Main();
-    		boolean cont = s.readFile(choose_path_txt.getText());
+    		boolean cont = s.readFile(fileName);
     		if(cont)
     			m.changeScene("/view/MainPage.fxml");
     	}

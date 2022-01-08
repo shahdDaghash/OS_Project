@@ -98,13 +98,15 @@ public class Simulator {
 	}
 	
 	public void generateFile(String filename) {
-		//filename should include the path ex: File myObj = new File("C:\\Users\\MyName\\filename.txt");
 		File newFile = new File(filename);
 		 try {
 	      FileWriter myWriter = new FileWriter(newFile,true);
+	      int n = 5;
 		  myWriter.write("1 2 3\n");
 		  //n lines
-		  myWriter.write("1 1 2 3 A1");
+		  for(int i=0;i<n;i++)
+			  //id , start , duration , size , 
+		  myWriter.write(i +" " + i+ + " " + i*2 );
 		  myWriter.close();
 		} catch (IOException e) {
 		  System.out.println("An error occurred.");
